@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createUseStyles } from "react-jss"
+import Dashboard from './Dashboard/Dashboard'
+import Footer from './Footer/Footer'
+import Grid from './Grid/Grid'
 
-function App() {
+const useStyles = createUseStyles(theme => ({
+  app: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 20,
+    padding: 20,
+    border: [1, 'solid', 'black'],
+    width: 'fit-content',
+    minWidth: 300,
+    margin: [50, 'auto']
+  },
+  button: {
+    padding: [5, 10]
+  }
+}))
+
+function App () {
+  const classes = useStyles()
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app}>
+      <Dashboard />
+      <Grid />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
